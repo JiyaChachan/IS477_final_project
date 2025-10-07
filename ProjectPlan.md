@@ -27,15 +27,34 @@ Both Jiya and Hannah will work together on writing and editing the **Project Pla
 ---
 
 ## Datasets
-This project will use two datasets:
+This project will use two main datasets: Inside Airbnb and Zillow Home Value Index (ZHVI). These datasets work well together because one focuses on short-term rentals (Airbnb) and the other on long-term housing prices (Zillow). By combining them, we can study how the number of Airbnb listings in an area might relate to housing costs.
 
-1. **Inside Airbnb Dataset** – [https://insideairbnb.com/get-the-data/](https://insideairbnb.com/get-the-data/)  
-   Provides data on Airbnb listings for various cities, including location, price, and availability.
+**1. Inside Airbnb Dataset**    
+**Source:** [https://insideairbnb.com/get-the-data/](https://insideairbnb.com/get-the-data/)  
 
-2. **Zillow Home Value Index (ZHVI)** – [https://www.zillow.com/research/data/](https://www.zillow.com/research/data/)  
-   Contains information on housing prices and rental values by ZIP code across the United States.
+The Inside Airbnb dataset gives detailed information about Airbnb listings in many cities around the world. It collects data from Airbnb’s public website and is updated regularly throughout the year. Each city’s dataset includes information such as:  
+- The **listing ID** and **host information** (for example, how many listings one host has)  
+- The **location** (latitude, longitude, neighborhood, and ZIP code)  
+- **Property details** (room type, number of bedrooms, price per night)  
+- **Availability and reviews** (how often the place is available, number of reviews, etc.)  
 
-These two datasets will be integrated using location data (ZIP code or neighborhood) to explore the relationship between Airbnb activity and housing prices.
+For this project, we will focus on one large city and group listings by **ZIP code or neighborhood**. This will let us measure how many Airbnb listings are in each area and find the average price and activity level.  
+
+
+**2. Zillow Home Value Index (ZHVI)**     
+**Source:** [https://www.zillow.com/research/data/](https://www.zillow.com/research/data/)  
+
+The Zillow Home Value Index (ZHVI) is a large dataset that shows typical home prices across the U.S. It is updated every month and includes data by **ZIP code, city, county, or state**. Zillow calculates these values using many housing records and statistical models.  
+
+Each row in the dataset usually includes:  
+- The **location** (ZIP code, city, and state)  
+- The **median home value** (the middle price of homes in that area)  
+- A **time series** showing how prices have changed over the months or years  
+
+Zillow also provides another dataset called the **Zillow Observed Rent Index (ZORI)**, which shows rental prices. We may use both ZHVI (home prices) and ZORI (rents) to compare Airbnb activity with both housing and rental costs.  
+
+
+We will combine the two datasets using **ZIP codes or neighborhood names**. This will allow us to compare areas with lots of Airbnb listings to their average housing prices or rent levels. By analyzing these together, we can see if neighborhoods with more Airbnbs also have higher housing costs or if that pattern changes over time.  
 
 ---
 
