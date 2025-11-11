@@ -13,7 +13,7 @@ import pandas as pd
 from pathlib import Path
 
 URL = "https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv?t=1762838443"
-OUTPUT_PATH = Path("zillow_zip_zhvi_2025.csv")
+OUTPUT_PATH = Path("data/raw/zillow_zip_zhvi_2025.csv")
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ZillowDataDownloader/1.0)"}
 
 OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
