@@ -31,6 +31,7 @@ This project will use two main datasets: Inside Airbnb and Zillow Home Value Ind
 
 **1. Inside Airbnb Dataset**    
 **Source:** [https://insideairbnb.com/get-the-data/](https://insideairbnb.com/get-the-data/)  
+**Permissions:** Data Source: Inside Airbnb ([http://insideairbnb.com/](url)) -- Data compiled by Murray Cox. Licensed under [CC By 4.0](url).
 
 The Inside Airbnb dataset gives detailed information about Airbnb listings in many cities around the world. It collects data from Airbnb’s public website and is updated regularly throughout the year. Each city’s dataset includes information such as:  
 - The **listing ID** and **host information** (for example, how many listings one host has)  
@@ -43,6 +44,7 @@ For this project, we will focus on one large city and group listings by **ZIP co
 
 **2. Zillow Home Value Index (ZHVI)**     
 **Source:** [https://www.zillow.com/research/data/](https://www.zillow.com/research/data/)  
+**Permissions:** Data Source: [Zillow Research Data](url)  Data provided by Zillow Group. Used under Zillow's Terms of Use for non-commercial, academic purposes. No affiliation or endorsement by Zillow Group is implied.
 
 The Zillow Home Value Index (ZHVI) is a large dataset that shows typical home prices across the U.S. It is updated every month and includes data by **ZIP code, city, county, or state**. Zillow calculates these values using many housing records and statistical models.  
 
