@@ -15,7 +15,7 @@ import numpy as np
 from pathlib import Path
 
 URL = "https://data.insideairbnb.com/united-states/ca/los-angeles/2025-09-01/data/listings.csv.gz"
-OUTPUT_PATH = Path("airbnb_listings_los-angeles_2025-09-01.csv.gz")
+OUTPUT_PATH = Path("data/raw/airbnb_listings_los-angeles_2025-09-01.csv.gz")
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; DataCollector/1.0)"}
 
 OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
