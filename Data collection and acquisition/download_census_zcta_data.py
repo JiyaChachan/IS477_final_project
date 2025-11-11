@@ -11,7 +11,7 @@ import pandas as pd
 from pathlib import Path
 
 URL = "https://www2.census.gov/geo/tiger/TIGER2025/ZCTA520/tl_2025_us_zcta520.zip"
-OUT_DIR = Path("zcta2025")
+OUT_DIR = Path("data/raw/zcta2025")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 print("Downloading U.S. Census TIGER/Line ZCTA shapefiles (2025)...")
