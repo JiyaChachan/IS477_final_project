@@ -31,7 +31,7 @@ This project will use two main datasets: Inside Airbnb and Zillow Home Value Ind
 
 **1. Inside Airbnb Dataset**    
 **Source:** [https://insideairbnb.com/get-the-data/](https://insideairbnb.com/get-the-data/)  
-**Permissions:** Data Source: Inside Airbnb ([http://insideairbnb.com/](url)) -- Data compiled by Murray Cox. Licensed under [CC By 4.0](url).
+**Permissions:** Data compiled by Murray Cox. Licensed under [CC By 4.0](url).
 
 The Inside Airbnb dataset gives detailed information about Airbnb listings in many cities around the world. It collects data from Airbnb’s public website and is updated regularly throughout the year. Each city’s dataset includes information such as:  
 - The **listing ID** and **host information** (for example, how many listings one host has)  
@@ -44,7 +44,7 @@ For this project, we will focus on one large city and group listings by **ZIP co
 
 **2. Zillow Home Value Index (ZHVI)**     
 **Source:** [https://www.zillow.com/research/data/](https://www.zillow.com/research/data/)  
-**Permissions:** Data Source: [Zillow Research Data](url)  Data provided by Zillow Group. Used under Zillow's Terms of Use for non-commercial, academic purposes. No affiliation or endorsement by Zillow Group is implied.
+**Permissions:** Data provided by Zillow Group. Used under Zillow's Terms of Use for non-commercial, academic purposes. No affiliation or endorsement by Zillow Group is implied.
 
 The Zillow Home Value Index (ZHVI) is a large dataset that shows typical home prices across the U.S. It is updated every month and includes data by **ZIP code, city, county, or state**. Zillow calculates these values using many housing records and statistical models.  
 
@@ -56,7 +56,20 @@ Each row in the dataset usually includes:
 Zillow also provides another dataset called the **Zillow Observed Rent Index (ZORI)**, which shows rental prices. We may use both ZHVI (home prices) and ZORI (rents) to compare Airbnb activity with both housing and rental costs.  
 
 
-We will combine the two datasets using **ZIP codes or neighborhood names**. This will allow us to compare areas with lots of Airbnb listings to their average housing prices or rent levels. By analyzing these together, we can see if neighborhoods with more Airbnbs also have higher housing costs or if that pattern changes over time.  
+After our data collection and acquisition phase, we realized the Inside Airbnb dataset does not include ZIP codes to easily merge the two datasets. Because of this, we added a third dataset to our project, as described below:
+
+** 3. U.S. Census Bureau TIGER/Line Shapefiles**
+**Source:** https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+**Permissions:** Public domain -- US Government data provided by the U.S. Census Bureau. These files are free to use, modify, and redistribute without restriction under U.S. law (Title 17 U.S.C. §105).
+
+The TIGER/Line shapefiles are geographic boundary datasets that include spatial representations of features such as **ZIP Code Tabulation Areas (ZCTAs)**, census tracts, counties, and other administrative or statistical boundaries across the United States.
+
+Each shapefile includes:
+- **Geographic boundaries** defining ZIP Code Tabulation Areas (ZCTAs)
+- **FIPS and GEOID codes** identifying each geographic unit
+- **Coordinate data** for mapping and spatial joins
+
+For this project, we specifically use the ZCTA shapefiles to assign ZIP codes to Airbnb listings based on their latitude and longitude coordinates. This enables accurate geographic alignment between the Inside Airbnb dataset and the ZHVI dataset. This will allow us to compare areas with lots of Airbnb listings to their average housing prices or rent levels. By analyzing these together, we can see if neighborhoods with more Airbnbs also have higher housing costs or if that pattern changes over time.  
 
 ---
 
