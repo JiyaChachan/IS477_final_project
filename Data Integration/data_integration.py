@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 data_integration.py
  - reads cleaned Airbnb
