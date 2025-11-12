@@ -53,4 +53,5 @@ Another change that we made to our project plan was in response to instructor fe
 **Jiya**
 
 **Hannah**
+
 My contributions to this project focused on ensuring compliance with data licensing requirements and documentation. I reviewed and documented the licensing terms for the three datasets, confirming that we were following all requirements regarding Terms of Use and the CC Attribution 4.0 License. I also formatted and updated our interim status report with our weekly progress, dataset integration milestones, and updates to the project plan.
