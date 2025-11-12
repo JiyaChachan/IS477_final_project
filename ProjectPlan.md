@@ -27,7 +27,7 @@ Both Jiya and Hannah will work together on writing and editing the **Project Pla
 ---
 
 ## Datasets
-This project will use two main datasets: Inside Airbnb and Zillow Home Value Index (ZHVI). These datasets work well together because one focuses on short-term rentals (Airbnb) and the other on long-term housing prices (Zillow). By combining them, we can study how the number of Airbnb listings in an area might relate to housing costs.
+This project will use two main datasets: Inside Airbnb and Zillow Home Value Index (ZHVI) along with a third dataset, the U.S. Census Bureau ZCTA shapefiles, which are used to assign ZIP codes to Airbnb listings. These datasets work well together because one focuses on short-term rentals (Airbnb) and the other on long-term housing prices (Zillow). By combining them, we can study how the number of Airbnb listings in an area might relate to housing costs.
 
 **1. Inside Airbnb Dataset**    
 **Source:** [https://insideairbnb.com/get-the-data/](https://insideairbnb.com/get-the-data/)  
