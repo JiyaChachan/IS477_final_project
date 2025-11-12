@@ -58,8 +58,8 @@ Zillow also provides another dataset called the **Zillow Observed Rent Index (ZO
 
 After our data collection and acquisition phase, we realized the Inside Airbnb dataset does not include ZIP codes to easily merge the two datasets. Because of this, we added a third dataset to our project, as described below:
 
-** 3. U.S. Census Bureau TIGER/Line Shapefiles**
-**Source:** https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+**3. U.S. Census Bureau TIGER/Line Shapefiles**  
+**Source:** https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html  
 **Permissions:** Public domain -- US Government data provided by the U.S. Census Bureau. These files are free to use, modify, and redistribute without restriction under U.S. law (Title 17 U.S.C. §105).
 
 The TIGER/Line shapefiles are geographic boundary datasets that include spatial representations of features such as **ZIP Code Tabulation Areas (ZCTAs)**, census tracts, counties, and other administrative or statistical boundaries across the United States.
