@@ -24,3 +24,4 @@ with zipfile.ZipFile(io.BytesIO(response.content)) as z:
 
 print(f"Extracted files to: {OUT_DIR}")
 print("Files:", [f.name for f in OUT_DIR.iterdir()])
+zcta = gpd.read_file(os.path.join(OUT_DIR, "tl_2025_us_zcta520.shp")).to_crs(epsg=4326)
