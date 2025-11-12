@@ -52,6 +52,8 @@ Another change that we made to our project plan was in response to instructor fe
 ## Team Member Contributions
 **Jiya**
 
+My primary contributions focused on the technical aspects of the project, including data acquisition, cleaning, and integration. I developed the Python scripts for automated dataset downloads (Airbnb, Zillow, and Census ZCTA), implemented the data cleaning and integration workflows, and ensured reproducibility across the entire data pipeline. 
+
 **Hannah**
 
 My contributions to this project focused on ensuring compliance with data licensing requirements and documentation. I reviewed and documented the licensing terms for the three datasets, confirming that we were following all requirements regarding Terms of Use and the CC Attribution 4.0 License. I also formatted and updated our interim status report with our weekly progress, dataset integration milestones, and updates to the project plan.
