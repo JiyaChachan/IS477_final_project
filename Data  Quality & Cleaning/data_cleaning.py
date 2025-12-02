@@ -19,7 +19,7 @@ airbnb = pd.read_csv(RAW_PATH, compression="gzip", low_memory=False)
 
 airbnb = airbnb[['id', 'latitude', 'longitude', 'price']]
 airbnb['price'] = airbnb['price'].replace('[\$,]', '', regex=True).astype(float)
-airbnb
+airbnb = airbnb.dropna(subset=['price'])
 
 # Save cleaned data
 airbnb.to_csv(OUT_PATH, index=False, compression="gzip")
