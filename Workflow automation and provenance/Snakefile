@@ -16,7 +16,7 @@ rule all:
     input:
         "data/processed/merged_airbnb_zillow_by_zip.csv",
         "visualizations/airbnb_vs_homevalues.png",
-        "analysis/ols_summaries.txst"
+        "analysis/ols_summaries.txt"
 
 ########################################################################
 # Data Acquisition
