@@ -1,0 +1,100 @@
+# Snakefile
+# End-to-end workflow automating data acquisition, cleaning,
+# integration, and analysis for the Airbnb–Zillow housing project.
+
+import os
+
+# Use the virtual environment's Python (relative path from Snakefile directory)
+
+PYTHON = os.path.join(os.environ["VIRTUAL_ENV"], "bin/python")
+
+########################################################################
+# Final targets
+########################################################################
+
+rule all:
+    input:
+        "data/processed/merged_airbnb_zillow_by_zip.csv",
+        "visualizations/airbnb_vs_homevalues.png",
+        "analysis/ols_summaries.txst"
+
+########################################################################
+# Data Acquisition
+########################################################################
+
+rule download_airbnb:
+    output:
+        "data/raw/airbnb_listings-los-angeles_2025-09-01.csv.gz"
+    shell:
+        "{PYTHON} \"Data collection and acquisition/download_airbnb_data.py\" && "
+        "test -f {output}"
+
+rule download_zillow:
+    output:
+        "data/raw/zillow_zip_zhvi_2025.csv"
+    shell:
+        "{PYTHON} \"Data collection and acquisition/download_zillow_data.py\" && "
+        "test -f {output}"
+
+rule download_zcta:
+    output:
+        # One file inside the directory is enough to confirm extraction
+        "data/raw/zcta2025/tl_2025_us_zcta520.shp"
+    shell:
+        "{PYTHON} \"Data collection and acquisition/download_census_zcta_data.py\" && "
+        "test -f {output}"
+
+########################################################################
+# Optional: Checksum Verification
+########################################################################
+
+rule checksum:
+    input:
+        airbnb="data/raw/airbnb_listings-los-angeles_2025-09-01.csv.gz",
+        zillow="data/raw/zillow_zip_zhvi_2025.csv",
+        zcta_shp="data/raw/zcta2025/tl_2025_us_zcta520.shp"
+    output:
+        "data/raw/checksums_done.txt"
+    shell:
+        "{PYTHON} \"Data collection and acquisition/checksum.py\" && touch {output}"
+
+########################################################################
+# Data Cleaning
+########################################################################
+
+rule clean_airbnb:
+    input:
+        "data/raw/airbnb_listings-los-angeles_2025-09-01.csv.gz"
+    output:
+        "data/processed/airbnb_clean.csv.gz"
+    shell:
+        "{PYTHON} \"Data Quality & Cleaning/data_cleaning.py\" && test -f {output}"
+
+########################################################################
+# Data Integration
+########################################################################
+
+rule integrate_data:
+    input:
+        airbnb_clean="data/processed/airbnb_clean.csv.gz",
+        zillow="data/raw/zillow_zip_zhvi_2025.csv",
+        zcta_shp="data/raw/zcta2025/tl_2025_us_zcta520.shp"
+    output:
+        "data/processed/merged_airbnb_zillow_by_zip.csv"
+    shell:
+        "{PYTHON} \"Data Integration/data_integration.py\" && test -f {output}"
+
+########################################################################
+# Analysis & Visualization
+########################################################################
+
+rule analyze_and_visualize:
+    input:
+        merged="data/processed/merged_airbnb_zillow_by_zip.csv"
+    output:
+        plot="visualizations/airbnb_vs_homevalues.png",
+        summary="analysis/ols_summaries.txt"
+    shell:
+        "{PYTHON} \"Data Analysis/analysis_visualization.py\" && " 
+        "test -f \"{output.plot}\" && test -f \"{output.summary}\""
+
