@@ -1,0 +1,70 @@
+Overall correlation (num_listings vs median_home_value):
+0.245092
+
+Simple OLS: median_home_value ~ num_listings
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:      median_home_value   R-squared:                       0.060
+Model:                            OLS   Adj. R-squared:                  0.050
+Method:                 Least Squares   F-statistic:                     6.071
+Date:                Wed, 03 Dec 2025   Prob (F-statistic):             0.0155
+Time:                        00:01:10   Log-Likelihood:                -1403.8
+No. Observations:                  97   AIC:                             2812.
+Df Residuals:                      95   BIC:                             2817.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+================================================================================
+                   coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const          9.54e+05   6.51e+04     14.662      0.000    8.25e+05    1.08e+06
+num_listings   570.2730    231.441      2.464      0.016     110.804    1029.742
+==============================================================================
+Omnibus:                       67.574   Durbin-Watson:                   1.521
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              302.508
+Skew:                           2.386   Prob(JB):                     2.05e-66
+Kurtosis:                      10.216   Cond. No.                         382.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Group mean median_home_value by neighborhood_type:
+neighborhood_type
+Suburban      9.550670e+05
+Urban Core    1.172410e+06
+
+Per-group correlations:
+Suburban: 0.06125673588061788
+Urban Core: 0.2084632576256809
+
+
+Interaction OLS: median_home_value ~ num_listings + is_urban + interaction
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:      median_home_value   R-squared:                       0.070
+Model:                            OLS   Adj. R-squared:                  0.040
+Method:                 Least Squares   F-statistic:                     2.332
+Date:                Wed, 03 Dec 2025   Prob (F-statistic):             0.0792
+Time:                        00:01:10   Log-Likelihood:                -1403.3
+No. Observations:                  97   AIC:                             2815.
+Df Residuals:                      93   BIC:                             2825.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+================================================================================
+                   coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const         8.971e+05   1.43e+05      6.258      0.000    6.12e+05    1.18e+06
+num_listings   885.6075   1931.346      0.459      0.648   -2949.663    4720.878
+is_urban      1.524e+05   1.85e+05      0.825      0.412   -2.15e+05     5.2e+05
+interaction   -499.3212   1954.085     -0.256      0.799   -4379.746    3381.104
+==============================================================================
+Omnibus:                       69.695   Durbin-Watson:                   1.455
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              335.227
+Skew:                           2.441   Prob(JB):                     1.61e-73
+Kurtosis:                      10.689   Cond. No.                     1.80e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.8e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
