@@ -40,7 +40,7 @@ This produces the overall correlation between:
 * **number of Airbnb listings per ZIP**, and
 * **median home value in that ZIP**.
 
-The result is printed and included in the final results summary.
+The result is printed and included in the final ols_summaries summary.
 
 ---
 
@@ -94,7 +94,7 @@ The script prints the full regression summary, including:
 This output is saved to:
 
 ```
-results.txt
+ols_summaries.txt
 ```
 
 ---
@@ -147,7 +147,7 @@ This shows:
 The full summary is also saved to:
 
 ```
-results.txt
+ols_summaries.txt
 ```
 
 ---
@@ -162,8 +162,8 @@ All outputs are stored in predictable locations:
 airbnb_vs_homevalues.png
 ```
 
-### **Text-Based Results**
+### **Text-Based ols_summaries**
 
 ```
-results.txt
+ols_summaries.txt
 ```
