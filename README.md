@@ -2,6 +2,30 @@
 
 Team Members: Jiya Chachan (chachan2), Hannah Adachi (hannaha7)
 
+Link to Output Box Folder: [https://uofi.box.com/s/ae0qoc1qxapa724kxkn94evo6ewjo4zn](url)
+## Licenses for Data and Software/Code
+Our project uses three external datasets. Their licenses are:
+### InsideAirbnb Data
+* Source: [http://insideairbnb.com](url)
+* License: Inside Airbnb Terms of Use
+* Permissions: Data is available for non-commercial, academic use.
+
+### Zillow ZHVI Data
+* Source: Zillow Research Data Portal
+* License: Zillow Data Usage Terms (non-commercial use)
+* Permissions: May be used for research and academic purposes; redistribution is restricted.
+
+### U.S. Census TIGER/Line Shapefiles (ZCTA)
+* Source: U.S. Census Bureau
+* License: Public Domain (U.S. Government work)
+* Permissions: Free to use, copy, modify, and redistribute.
+
+### Software/Code License
+All software created by our group for this IS 477 project is released under the following license:
+
+**MIT License**: Our code is released under the MIT License, which allows reuse for academic and non-commercial purposes.
+
+
 ## Reproducibility Instructions
 ### Step 1: Clone the repository
 To download the project, run the following code in your terminal:
@@ -41,4 +65,7 @@ python "Data Integration/data_integration.py"
 ```
 
 ### Step 6: Run data analysis & visualization
-....
+```bash
+python "Data Analysis/analysis_visualization.py"
+```
+
