@@ -101,7 +101,7 @@ To ensure reproducibility, verify the SHA-256 checksum after download.
 **Expected Checksum:**
 
 ```bash
-b353f67cf538dac16e720acd32c4056373d23d375688a4854c89685a3ffd0978
+a90fd263c61a81aac1837607501b38f16adc8e9e33a0cb5f683842e0bd7ff63b
 ```
 
 **To Verify (Linux/macOS/Git Bash):**
