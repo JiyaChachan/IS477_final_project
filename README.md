@@ -79,7 +79,7 @@ python "Data Analysis/analysis_visualization.py"
 ## Licenses for Data and Software/Code
 Our project uses three external datasets. Their licenses are:
 ### InsideAirbnb Data
-* Source: [http://insideairbnb.com](url)
+* Source: [http://insideairbnb.com](http://insideairbnb.com)
 * License: Inside Airbnb Terms of Use
 * Permissions: Data is available for non-commercial, academic use.
 
