@@ -9,6 +9,10 @@ Purpose:
 import requests
 import pandas as pd
 from pathlib import Path
+import zipfile
+import io
+import os
+import geopandas as gpd
 
 URL = "https://www2.census.gov/geo/tiger/TIGER2025/ZCTA520/tl_2025_us_zcta520.zip"
 OUT_DIR = Path("data/raw/zcta2025")
