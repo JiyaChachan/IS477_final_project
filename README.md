@@ -33,7 +33,7 @@ python "Data collection and acquisition/checksum.py"
 
 ### Step 4: Run data cleaning
 ```bash
-python "Data Cleaning/data_cleaning.py"
+python "Data Quality & Cleaning/data_cleaning.py"
 ```
 
 ### Step 5: Run data integration 
