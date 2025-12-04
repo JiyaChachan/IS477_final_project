@@ -1,4 +1,5 @@
 # Reproducibility and Transparency
+## Reproducibility Instructions
 This project is fully reproducible through the automated Snakemake workflow located in:
 ```nginx
 Workflow automation and provenance/Snakefile
@@ -103,12 +104,16 @@ analysis/ols_summaries.txt
 ```
 These are the final deliverables used in our analysis.
 
-## Data Access Transparency
+## Transparency
+### Data Access
 All datasets used in the workflow were retrieved programmatically, meaning:
 * No manual data downloads are required
 * Running the workflow will always fetch the most recent version of each dataset
 
-## Software and License Transparency
+### Software and License
 * All software dependencies are specified in `requirements.txt`
 * Workflow scripts, automation files, and analysis scripts are included in the repository
-* Dataset licenses are documented in the licensing section of the README
+* Dataset licenses are documented in the licensing section located in this file:
+```nginx
+Metadata and Documentation/README.md
+```
