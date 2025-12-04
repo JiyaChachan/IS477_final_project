@@ -61,7 +61,7 @@ The figure includes:
 The plot is saved to:
 
 ```
-airbnb_vs_homevalues.png
+visualizations/airbnb_vs_homevalues.png
 ```
 
 This visualization helps determine whether a positive or negative trend is visible.
@@ -94,7 +94,7 @@ The script prints the full regression summary, including:
 This output is saved to:
 
 ```
-ols_summaries.txt
+analysis/ols_summaries.txt
 ```
 
 ---
@@ -147,7 +147,7 @@ This shows:
 The full summary is also saved to:
 
 ```
-ols_summaries.txt
+analysis/ols_summaries.txt
 ```
 
 ---
@@ -159,11 +159,11 @@ All outputs are stored in predictable locations:
 ### **Figures**
 
 ```
-airbnb_vs_homevalues.png
+visualizations/airbnb_vs_homevalues.png
 ```
 
 ### **Text-Based ols_summaries**
 
 ```
-ols_summaries.txt
+analysis/ols_summaries.txt
 ```
