@@ -97,4 +97,3 @@ rule analyze_and_visualize:
     shell:
         "{PYTHON} \"Data Analysis/analysis_visualization.py\" && " 
         "test -f \"{output.plot}\" && test -f \"{output.summary}\""
-
