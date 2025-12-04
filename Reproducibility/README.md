@@ -1,5 +1,59 @@
 # Reproducibility and Transparency
 ## Reproducibility Instructions
+### Step 1: Clone the repository
+
+```sh
+git clone https://github.com/JiyaChachan/IS477_final_project.git
+cd IS477_final_project
+```
+
+### Step 2: Setting up the environment
+We recommend using a virtual environment to avoid dependency issues. This will install all required packages (pandas, geopandas, matplotlib, etc.).
+```sh
+python3 -m venv venv
+source venv/bin/activate      # Windows → venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Step 3: Download all datasets programmatically
+```bash
+python "Data collection and acquisition/download_airbnb_data.py"
+python "Data collection and acquisition/download_zillow_data.py"
+python "Data collection and acquisition/download_census_zcta_data.py"
+```
+These scripts download:
+* Airbnb listings (Los Angeles)
+* Zillow ZHVI ZIP-level home value data
+* U.S. Census ZCTA shapefiles
+No datasets need to be downloaded manually.
+
+### Step 4: Verify integrity with checksums
+```bash
+python "Data collection and acquisition/checksum.py"
+```
+This prints SHA-256 checksums for each raw dataset so users may confirm file integrity. This step is optional and not required to run the workflow.
+
+### Step 5: Run data cleaning
+```bash
+python "Data Quality & Cleaning/data_cleaning.py"
+```
+This script standardizes data types, filters invalid records, reformats ZIP codes, and outputs cleaned Airbnb and Zillow datasets.
+
+### Step 6: Run data integration
+```bash
+python "Data Integration/data_integration.py"
+```
+This step spatially joins Airbnb listings to Census ZCTAs, merges the resulting ZIP-level aggregates with Zillow home values, produces visualizations, and outputs the final integrated dataset:
+```bash
+data/processed/merged_airbnb_zillow_by_zip.csv
+```
+### Step 7: Run Data analysis and visualization
+```bash
+Data Analysis/analysis_visualization.py
+```
+This step will fit the OLS regression model, generate the scatterplot, and create summary analysis outputs. You can also find our output findings in the Box folder [here]([https://uofi.box.com/s/ae0qoc1qxapa724kxkn94evo6ewjo4zn]).
+
+## Automated Workflow
 This project is fully reproducible through the automated Snakemake workflow located in:
 ```nginx
 Workflow automation and provenance/Snakefile
@@ -20,7 +74,7 @@ source venv/bin/activate      # Windows → venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Step 3: Verify required directory structure
+### Step 7: Verify required directory structure
 
 Snakemake will populate the following directories automatically:
 
@@ -31,7 +85,7 @@ visualizations/
 analysis/
 ```
 
-### Step 5: Run the full workflow
+### Step 8: Run the full workflow
 
 From the repository root:
 
@@ -50,7 +104,7 @@ Snakemake will:
 7. Run statistical analysis
 8. Generate a visualization
 
-### Step 6: Final outputs
+### Step 9: Final outputs
 
 After the workflow completes, key artifacts appear in:
 
