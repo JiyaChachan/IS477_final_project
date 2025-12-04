@@ -24,7 +24,7 @@ rule all:
 
 rule download_airbnb:
     output:
-        "data/raw/airbnb_listings-los-angeles_2025-09-01.csv.gz"
+        "data/raw/airbnb_listings_los-angeles_2025-09-01.csv.gz"
     shell:
         "{PYTHON} \"Data collection and acquisition/download_airbnb_data.py\" && "
         "test -f {output}"
@@ -50,7 +50,7 @@ rule download_zcta:
 
 rule checksum:
     input:
-        airbnb="data/raw/airbnb_listings-los-angeles_2025-09-01.csv.gz",
+        airbnb="data/raw/airbnb_listings_los-angeles_2025-09-01.csv.gz",
         zillow="data/raw/zillow_zip_zhvi_2025.csv",
         zcta_shp="data/raw/zcta2025/tl_2025_us_zcta520.shp"
     output:
@@ -64,7 +64,7 @@ rule checksum:
 
 rule clean_airbnb:
     input:
-        "data/raw/airbnb_listings-los-angeles_2025-09-01.csv.gz"
+        "data/raw/airbnb_listings_los-angeles_2025-09-01.csv.gz"
     output:
         "data/processed/airbnb_clean.csv.gz"
     shell:
