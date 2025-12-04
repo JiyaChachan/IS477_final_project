@@ -63,7 +63,7 @@ These are the final deliverables of the automated pipeline.
 
 This script allows a user to re execute the entire workflow with a single command and without remembering the Snakemake options.
 
-Create a file named `run_all.sh`:
+`run_all.sh`:
 
 ```sh
 #!/bin/bash
