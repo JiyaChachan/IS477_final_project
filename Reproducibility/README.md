@@ -51,7 +51,7 @@ data/processed/merged_airbnb_zillow_by_zip.csv
 ```bash
 python "Data Analysis/analysis_visualization.py"
 ```
-This step will fit the OLS regression model, generate the scatterplot, and create summary analysis outputs. You can also find our output findings in the Box folder [here]([https://uofi.box.com/s/ae0qoc1qxapa724kxkn94evo6ewjo4zn]).
+This step will fit the OLS regression model, generate the scatterplot, and create summary analysis outputs. You can also find our output findings in the Box folder [here](https://uofi.box.com/s/ae0qoc1qxapa724kxkn94evo6ewjo4zn).
 
 ## Automated Workflow
 This project is fully reproducible through the automated Snakemake workflow located in:
