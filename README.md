@@ -133,8 +133,13 @@ U.S. Census Bureau. (2023). TIGER/Line Shapefiles: ZIP Code Tabulation Areas (ZC
 
 **Software/Tools**
 
-Köster, J. & Rahmann, S. (2012). Snakemake—a scalable bioinformatics workflow engine.
-   Bioinformatics, 28(19), 2520–2522.
 
-OpenRefine. (2022). OpenRefine (Version 3.7) [Software]. OpenRefine Project.
-   https://openrefine.org/. 
+Köster, J., & Rahmann, S. (2012). Snakemake: A scalable bioinformatics workflow engine. *Bioinformatics, 28*(19), 2520–2522.
+[https://doi.org/10.1093/bioinformatics/bts480](https://doi.org/10.1093/bioinformatics/bts480)
+
+OpenRefine Project. (2025). *OpenRefine* (Version 3.7) [Software]. [https://openrefine.org/](https://openrefine.org/)
+
+Google. (2025). *Google Colaboratory* [Computer software]. [https://colab.research.google.com/](https://colab.research.google.com/)
+
+Microsoft. (2025). *Visual Studio Code* (Version 1.106.1) [Computer software]. [https://code.visualstudio.com/](https://code.visualstudio.com/)
+
