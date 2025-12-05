@@ -1,41 +1,51 @@
 # **Storage and Organization**
 
-This project is organized into a modular directory structure aligned with the stages of the data lifecycle. Each major phase of the workflow is contained in its own top-level folder, with scripts, intermediate outputs, and documentation stored together. This structure ensures traceability, reproducibility, and clear data provenance.
+This repository follows a modular, lifecycle-based structure that mirrors the major phases of data work: acquisition, cleaning, integration, analysis, documentation, reproducibility, and workflow automation. Each stage is self-contained, with scripts, documentation, and outputs grouped together. This organization supports clarity, traceability, and full reproducibility.
 
 ---
 
-## **Repository Structure**
+# **Repository Structure**
 
 ```
 /
 ├── Data collection and acquisition/
-│   ├── README.md
 │   ├── checksum.py
 │   ├── download_airbnb_data.py
 │   ├── download_census_zcta_data.py
-│   └── download_zillow_data.py
+│   ├── download_zillow_data.py
+│   └── README.md
 │
 ├── Data Quality & Cleaning/
-│   ├── README.md
 │   ├── data_cleaning.py
-│   └── history.json
+│   ├── history.json
+│   └── README.md
 │
 ├── Data Integration/
-│   ├── README.md
-│   └── data_integration.py
+│   ├── data_integration.py
+│   └── README.md
 │
 ├── Data Analysis/
-│   ├── README.md
-│   ├── airbnb_vs_homevalues.png
 │   ├── analysis_visualization.py
-│   └── results.txt
+│   ├── results.txt
+│   ├── airbnb_vs_homevalues.png
+│   └── README.md
+│
+├── Metadata and Documentation/
+│   └── README.md
+│
+├── Reproducibility/
+│   ├── environment.txt
+│   └── README.md
+│
+├── Storage & Organization/
+│   └── README.md
 │
 ├── Workflow automation and provenance/
-│   ├── README.md
-│   └── Snakefile
+│   ├── Snakefile
+│   ├── run_all.sh
+│   └── README.md
 │
-│── Workflow automation and provenance/
-|── ProjectPlan.md
+├── ProjectPlan.md
 ├── StatusReport.md
 ├── requirements.txt
 └── README.md
@@ -43,111 +53,172 @@ This project is organized into a modular directory structure aligned with the st
 
 ---
 
-## **Directory Purpose and Naming Conventions**
+# **Directory Purpose and Naming Conventions**
 
-### **1. Data collection and acquisition/**
+## **1. Data collection and acquisition/**
 
-This folder contains all scripts used to download datasets directly from external sources (Inside Airbnb, Zillow, and the U.S. Census).
+This module contains all scripts that retrieve external datasets used in the project.
 
-**Naming conventions:**
+**Contents include:**
 
-* Scripts start with `download_` to indicate external acquisition.
-* `checksum.py` contains reproducible verification logic.
-* Associated dataset README documents URLs, checksums, and attribution.
+* `download_airbnb_data.py`
+* `download_zillow_data.py`
+* `download_census_zcta_data.py`
+* `checksum.py` for SHA-256 dataset validation
+* A README explaining source URLs, provenance, and licensing
 
-**Files stored here:** only *scripts* and *documentation*, not raw data.
+**Conventions:**
 
-Raw datasets (Airbnb CSV, Zillow CSV, and ZCTA shapefiles) are downloaded into your local machine under the paths expected by these scripts, but they are intentionally **not committed to GitHub** due to licensing and file size restrictions.
-
----
-
-### **2. Data Quality & Cleaning/**
-
-This module contains the logic for profiling and cleaning raw datasets.
-
-**Naming conventions:**
-
-* `data_cleaning.py` performs transformations (column selection, price cleaning, NA removal).
-* `history.json` records the sequence of transformations in a structured format.
-
-**Outputs:** cleaned files are written to `data/processed/` (not stored in GitHub).
+* Acquisition scripts follow the pattern `download_<source>_data.py`
+* No downloaded data is stored in GitHub
+  The scripts write to `data/raw/` when executed locally.
 
 ---
 
-### **3. Data Integration/**
+## **2. Data Quality & Cleaning/**
 
-This folder includes scripts that perform spatial operations and merge datasets.
+This directory contains scripts that profile and clean raw datasets before integration.
 
-**Naming conventions:**
+**Contents include:**
 
-* `data_integration.py` includes the spatial join (Airbnb → ZCTA), ZIP aggregation, Zillow value merge, and classification of neighborhood types.
+* `data_cleaning.py` for processing, filtering, and standardizing data
+* `history.json` documenting cleaning operations
+* README describing quality checks, profiling, and assumptions
 
-**Outputs:**
-`merged_airbnb_zillow_by_zip.csv` is created in the processed data directory.
+**Outputs generated (not versioned):**
 
----
+* Cleaned datasets in `data/processed/`
 
-### **4. Data Analysis/**
+**Conventions:**
 
-This folder contains all analytics code and derived results produced after integration.
-
-**Naming conventions:**
-
-* Scripts use the pattern `analysis_visualization.py`
-* Visualization outputs follow descriptive snake_case filenames, e.g.,
-  `airbnb_vs_homevalues.png`
-* Text-based model results are written to `results.txt`
-
-This separation ensures analysis results can be regenerated via the workflow without mixing them with raw or intermediate data.
+* Cleaning scripts use `data_<task>.py`
+* Provenance logs use JSON (`history.json`)
 
 ---
 
-### **5. Workflow automation and provenance/**
+## **3. Data Integration/**
 
-This folder contains:
+This stage merges datasets into a unified analytical file.
 
-* Documentation describing workflow reproducibility
-* **Snakemake workflow** (`Snakefile`) which automates the entire pipeline from acquisition → cleaning → integration → visualization.
+**Contents include:**
 
-**Naming conventions:**
+* `data_integration.py` performing spatial joins, ZIP aggregation, and merging Zillow values
+* README describing integration logic and schema alignment
 
-* High-level reports use TitleCase (`ProjectPlan.md`, `StatusReport.md`)
-* Workflow description uses lowercase (`README.md`)
-* Pipeline file is always named `Snakefile`
+**Generated output:**
 
-This folder provides traceability and ensures that anyone can regenerate the full project using a single workflow command.
+* `merged_airbnb_zillow_by_zip.csv` stored in `data/processed/`
 
----
+**Conventions:**
 
-### **6. Top-Level Files**
-
-#### **README.md**
-
-Main documentation page, including:
-
-* final report
-* reproducibility guide
-* metadata
-* data dictionary
-* licensing
-* summary of scripts
-
-#### **requirements.txt**
-
-#### **ProjectPlan.md** and **StatusReport.md**
+* Integration code always named `data_integration.py`
+* Outputs stored in processed data folder, not the script directory
 
 ---
 
-## **Naming and Storage Conventions Summary**
+## **4. Data Analysis/**
+
+This module contains analytical scripts, visualizations, and derived results.
+
+**Contents include:**
+
+* `analysis_visualization.py`
+* `airbnb_vs_homevalues.png`
+* `results.txt`
+* README summarizing the analysis methods
+
+**Conventions:**
+
+* Analysis scripts follow `analysis_<task>.py`
+* Visualizations are lowercase descriptive filenames
+  Example: `airbnb_vs_homevalues.png`
+* Textual output stored as `results.txt`
+
+This ensures results are reproducible from the workflow and are separate from raw or intermediate data.
+
+---
+
+## **5. Metadata and Documentation/**
+
+Central location for project metadata, data dictionaries, and descriptive documentation.
+
+**Contents include:**
+
+* `README.md` explaining schema, variables, and metadata standards
+
+**Conventions:**
+
+* Documentation uses TitleCase
+* Contains no code and no generated outputs
+
+---
+
+## **6. Reproducibility/**
+
+This folder ensures others can recreate your exact environment.
+
+**Contents include:**
+
+* `environment.txt` describing package dependencies
+* `README.md` with instructions for environment recreation
+
+**Conventions:**
+
+* Only reproducibility files here
+* No data or workflow code
+
+---
+
+## **7. Storage & Organization/**
+
+This directory documents how datasets, scripts, and outputs should be structured.
+
+**Contents include:**
+
+* `README.md` describing organizational conventions and storage standards
+
+This folder is documentation only.
+
+---
+
+## **8. Workflow automation and provenance/**
+
+This module contains your full workflow automation system using Snakemake.
+
+**Contents include:**
+
+* `Snakefile` defining all workflow rules for acquisition, cleaning, integration, and analysis
+* `run_all.sh` script to execute the entire pipeline
+* README explaining workflow dependencies and usage
+
+**Conventions:**
+
+* Workflow file always named `Snakefile`
+* Shell automation scripts use snake_case suffix `.sh`
+* Provenance descriptions stored in README
+
+---
+
+## **9. Top-Level Files**
+
+| File               | Purpose                                       |
+| ------------------ | --------------------------------------------- |
+| `README.md`        | Full project overview, metadata, instructions |
+| `requirements.txt` | Python dependencies for running the pipeline  |
+| `ProjectPlan.md`   | Initial planning document                     |
+| `StatusReport.md`  | Progress tracking and updates                 |
+
+---
+
+# **Naming and Storage Conventions Summary**
 
 | Category            | Convention                  | Example                       |
 | ------------------- | --------------------------- | ----------------------------- |
-| Acquisition scripts | `download_<source>_data.py` | `download_airbnb_data.py`     |
+| Acquisition scripts | `download_<source>_data.py` | `download_zillow_data.py`     |
 | Cleaning scripts    | `data_cleaning.py`          | ✓                             |
 | Integration scripts | `data_integration.py`       | ✓                             |
 | Analysis scripts    | `analysis_<task>.py`        | `analysis_visualization.py`   |
-| Visualizations      | lowercase, descriptive      | `airbnb_vs_homevalues.png`    |
-| Reports             | TitleCase                   | `ProjectPlan.md`              |
+| Visualizations      | lowercase descriptive       | `airbnb_vs_homevalues.png`    |
 | Provenance          | lowercase                   | `checksum.py`, `history.json` |
+| Reports             | TitleCase                   | `ProjectPlan.md`              |
 
----
