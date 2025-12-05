@@ -4,6 +4,8 @@ Team Members: Jiya Chachan (chachan2), Hannah Adachi (hannaha7)
 
 Link to Output Box Folder: [https://uofi.box.com/s/ae0qoc1qxapa724kxkn94evo6ewjo4zn](https://uofi.box.com/s/ae0qoc1qxapa724kxkn94evo6ewjo4zn)
 
+Reporducibility Instructions: [Reproducibility](https://github.com/JiyaChachan/IS477_final_project/tree/main/Reproducibility)
+
 ## Summary
 This project investigates the relationship between short-term Airbnb rental activity and local housing prices by designing and implementing an end-to-end, fully reproducible data workflow. The main research question guiding our work is whether the density of Airbnb activity is associated with increases in local home values, and whether this relationship varies across different types of neighborhoods, such as dense urban areas compared to more suburban regions. This topic has become increasingly relevant as cities across the United States debate the role of short-term rentals in influencing housing affordability, neighborhood structures, and real estate investment patterns. Los Angeles, a city with both a large tourism market and persistent affordability challenges, provides the ideal context for examining how Airbnb activity aligns with housing price trends.
 
