@@ -49,7 +49,7 @@ data/processed/merged_airbnb_zillow_by_zip.csv
 ```
 ### Step 7: Run Data analysis and visualization
 ```bash
-Data Analysis/analysis_visualization.py
+python "Data Analysis/analysis_visualization.py"
 ```
 This step will fit the OLS regression model, generate the scatterplot, and create summary analysis outputs. You can also find our output findings in the Box folder [here]([https://uofi.box.com/s/ae0qoc1qxapa724kxkn94evo6ewjo4zn]).
 
